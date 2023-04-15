@@ -53,7 +53,7 @@ public class UserService {
         //User Data Created
         //user ->role = admin
         User adminUser = new User();
-        adminUser.setUserName("admin@123");
+        adminUser.setUserName("admin123");
         adminUser.setUserFirstName("admin");
         adminUser.setUserLastName("admin");
         adminUser.setUserPassword(getEncodedPassword("admin@pass"));
