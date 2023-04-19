@@ -1,15 +1,49 @@
 <div class="container mt-5">
-  <div class="card text-bg-success text-center" style="padding: 20px;">
+  <div class="card text-bg-success text-center" style="padding: 20px">
     <h1>THIS IS LOGIN PAGE</h1>
   </div>
 
-  <div class="card" style="padding: 20px;">
+  <div
+    class="card justify-content-center align-items-center"
+    style="padding: 20px"
+  >
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+      <mat-form-field appearance="outline" class="w-100 mt-2">
+        <mat-label>Username</mat-label>
+        <input
+          type="text"
+          matInput
+          ngModel
+          name="userName"
+          id="userName"
+          placeholder="Username"
+        />
+        <mat-icon matSuffix>supervised_user_circle</mat-icon>
+        <mat-hint>Username</mat-hint>
+      </mat-form-field>
 
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" >
-      <input type="text" ngModel name="userName" id="userName" placeholder="ENTER YOUR NAME" class="form-control mb-3">
-      <input type="password" ngModel name="userPassword" id="userPassword" placeholder="ENTER YOUR PASSWORD" class="form-control mb-3">
-      <input type="submit" value="LOGIN" class="btn btn-outline-primary form-control rounded-1">
+      <mat-form-field appearance="outline" class="w-100 mt-2">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          ngModel
+          name="userPassword"
+          id="userPassword"
+          placeholder="Password"
+        />
+        <mat-icon matSuffix>visibility_off</mat-icon>
+        <mat-hint>Password</mat-hint>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        class="w-100 mt-2"
+        mat-raised-button
+        color="primary"
+      >
+        Login
+      </button>
     </form>
-
   </div>
 </div>
