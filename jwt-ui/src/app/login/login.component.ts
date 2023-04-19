@@ -21,7 +21,12 @@ export class LoginComponent {
         this.userAuthService.setRoles(response.user.role);
         this.userAuthService.setToken(response.jwtToken);
 
+        console.log(response);
+        
+
         const role = response.user.role[0].roleName;
+        console.log("ROLE : ",role);
+        
         if(role === 'Admin'){
           this.router.navigate(['/admin']);
         }else{
