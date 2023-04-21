@@ -22,7 +22,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import { DragDirective } from './drag.directive';
+import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 
 
 
@@ -36,7 +38,9 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     LoginComponent,
     HeaderComponent,
     ForbiddenComponent,
-    AddNewProductComponent
+    AddNewProductComponent,
+    DragDirective,
+    ShowProductDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatGridListModule
 
   ],
   providers: [
@@ -64,3 +69,13 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
+// SELECT * FROM e_commerce.image_model;
+// SELECT * FROM e_commerce.product;
+// SELECT * FROM e_commerce.product_images;
+
+// SELECT * FROM e_commerce.role;
+// SELECT * FROM e_commerce.user;
+// SELECT * FROM e_commerce.user_role;

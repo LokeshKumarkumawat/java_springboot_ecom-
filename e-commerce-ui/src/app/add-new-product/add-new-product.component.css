@@ -1,0 +1,48 @@
+mat-grid-tile{
+  border: 2px solid #eee;
+}
+
+
+.btn-remove-image{
+  position: absolute;
+  cursor: pointer;
+  top: -11px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: auto;
+  text-align: center;
+}
+
+
+.dropzone{
+  height: 150px;
+  min-width: 100px;
+  display: table;
+  background-color: #eee;
+  width: 350px;
+  border: dashed 1px #aaa;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.text-wrapper{
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.text-centered{
+  text-align: center;
+}
+
+.browse-btn{
+  color: blue;
+  cursor: pointer;
+text-decoration: none;
+}
+
+.browse-text{
+  text-decoration: underline;
+}
