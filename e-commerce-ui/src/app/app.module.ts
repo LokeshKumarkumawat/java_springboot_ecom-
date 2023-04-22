@@ -25,8 +25,9 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
 import {MatGridListModule} from '@angular/material/grid-list';
 import { DragDirective } from './drag.directive';
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
-
-
+import {MatTableModule} from '@angular/material/table';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ShowProductDetailsComponent } from './show-product-details/show-product
     ForbiddenComponent,
     AddNewProductComponent,
     DragDirective,
-    ShowProductDetailsComponent
+    ShowProductDetailsComponent,
+    ShowProductImagesDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,9 @@ import { ShowProductDetailsComponent } from './show-product-details/show-product
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatTableModule,
+    MatDialogModule
 
   ],
   providers: [

@@ -127,7 +127,7 @@ public class WebSecurityConfiguration {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/authenticate" , "/registerNewUser"  , "/getAllProducts")
+                .antMatchers("/authenticate" , "/registerNewUser"  , "/getAllProducts", "/deleteProductDetailes/{productId}")
                 .permitAll()
                 .antMatchers(HttpHeaders.ALLOW)
                 .permitAll()
