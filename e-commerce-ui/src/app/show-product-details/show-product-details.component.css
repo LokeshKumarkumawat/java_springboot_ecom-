@@ -1,4 +1,25 @@
-/* table
+table
 {
   width: 100%;
-} */
+}
+
+table td{
+  padding: 10px;
+  text-align: center;
+}
+
+table th{
+  padding: 10px;
+  text-align: center;
+}
+
+.mat-column-description {
+  width: 55% !important;
+  text-align:start !important;
+ 
+}
+
+.mat-column-description th{
+  text-align: center;
+  background-color: blue;
+}
