@@ -22,11 +22,11 @@ export class LoginComponent {
         this.userAuthService.setToken(response.jwtToken);
 
         console.log(response);
-        
+
 
         const role = response.user.role[0].roleName;
         console.log("ROLE : ",role);
-        
+
         if(role === 'Admin'){
           this.router.navigate(['/admin']);
         }else{
@@ -38,6 +38,11 @@ export class LoginComponent {
         console.log(error);
       }
     );
+  }
+
+
+  registerUser(){
+    this.router.navigate(['/register']);
   }
 
 }

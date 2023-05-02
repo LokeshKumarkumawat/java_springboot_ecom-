@@ -20,6 +20,8 @@ import java.io.IOException;
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
 
+    public static String CURRENT_USER = "";
+
     @Autowired
     private JwtUtil jwtUtil;
 
@@ -44,7 +46,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
              try{
                 userName = jwtUtil.getUserNameFormToken(jwtToken);
-
+                CURRENT_USER = userName;
                  System.out.println(userName);
 
              }catch (IllegalArgumentException e){

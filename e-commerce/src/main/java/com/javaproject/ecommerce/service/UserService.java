@@ -102,6 +102,7 @@ public class UserService {
 
 
 
+
     public User registerNewUser(User user) {
         Role role = roleDao.findById("User").get();
         Set<Role> roles = new HashSet<>();

@@ -1,5 +1,16 @@
 <div class="p-3 mt-4">
 
+
+  <mat-form-field appearance="outline" class="w-100 mt-2">
+    <mat-label>Search Any Product</mat-label>
+    <input #searchkeyword (keyup)="searchByKeyword(searchkeyword.value)" type="text" matInput ngModel name="searchKey" id="searchKey" placeholder="Search Any Product" />
+    <mat-icon matSuffix>supervised_user_circle</mat-icon>
+    <mat-hint>Search Any Product</mat-hint>
+  </mat-form-field>
+
+
+  <div *ngIf="showTable">
+
   <table mat-table [dataSource]="productDetails" class="mat-elevation-z8">
 
     <!-- Position Column -->
@@ -59,6 +70,14 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
+</div>
+
+  <div class="text-center" style="margin-top: 100px;" *ngIf="showLoadButton">
+    <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()">Load More</button>
+  </div>
+
+
 
 
 
