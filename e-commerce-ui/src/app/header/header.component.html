@@ -1,33 +1,96 @@
 <mat-toolbar color="primary">
-  <span>E-commerce Application</span>
-  <button *ngIf="!isLoggedIn()" mat-raised-button color="primary" routerLink="/">Home</button>
+
+  <mat-toolbar color="primary" class="cc">
 
 
-  <span class="space-buttons"></span>
-  <button
-    *ngIf="!isLoggedIn()"
-    routerLink="/login"
-    mat-raised-button
-    color="primary"
-  >
-    Login
-  </button>
-  <button
-    *ngIf="isLoggedIn()"
-    (click)="logout()"
-    mat-raised-button
-    color="warn"
-  >
-    Logout
-  </button>
-</mat-toolbar>
 
-<mat-toolbar color="primary" *ngIf="isLoggedIn()">
-  <button mat-raised-button color="primary" routerLink="/">Home</button>
-  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/cart">Cart</button>
-  <button *ngIf="!isAdmin()" mat-raised-button color="primary" routerLink="/myOrders">My Orders</button>
-  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct" >Add New Product</button>
-  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/showProductDetails" >Show Product Detailes</button>
-  <button *ngIf="isAdmin()" mat-raised-button color="primary" routerLink="/orderInformation" >Order Information</button>
 
+    <div class="logoh">
+      <h1>E-SHOPIFY</h1>
+    </div>
+
+    <div class="logoadd">
+
+      <mat-button-toggle-group>
+        <mat-button-toggle mat-button routerLink="/">Select Address</mat-button-toggle>
+        <mat-button-toggle *ngIf="isLoggedIn() && !isAdmin()" mat-button routerLink="/myOrders">EN</mat-button-toggle>
+
+      </mat-button-toggle-group>
+
+
+
+
+
+    </div>
+
+
+
+
+    <div class="search">
+      <input class="searchTerm" type="text" matInput ngModel name="searchKey" id="searchKey"
+        placeholder="Search Any Product" />
+      <!-- <input class="searchTerm"  #searchkeyword (keyup)="searchByKeyword(searchkeyword.value)" type="text" matInput ngModel name="searchKey" id="searchKey" placeholder="Search Any Product" /> -->
+
+      <div class="s-box">
+        <mat-icon fontIcon="search" class="search-icon"></mat-icon>
+      </div>
+    </div>
+
+    <div class="n-links"></div>
+
+    <div class="login-logout">
+
+      <mat-button-toggle-group>
+        <mat-button-toggle mat-button routerLink="/">Home</mat-button-toggle>
+        <mat-button-toggle mat-button routerLink="/about">About</mat-button-toggle>
+        <mat-button-toggle  mat-button routerLink="/contact">Contact</mat-button-toggle>
+        <mat-button-toggle *ngIf="isLoggedIn() && !isAdmin()" mat-button routerLink="/myOrders">MyOrders</mat-button-toggle>
+
+
+        <mat-button-toggle mat-button [matMenuTriggerFor]="belowMenu">Login</mat-button-toggle>
+        <mat-menu class="customize" #belowMenu="matMenu" yPosition="below">
+          <div class="acc-div">
+            <mat-icon class="acc-icon">account_circle</mat-icon>
+            <h4>Lokesh Kumawat <br> <span>@lokesh</span></h4>
+          </div>
+
+          <div>
+            <button mat-button>Add an existing account</button>
+            <button mat-button>Manage account</button>
+          </div>
+
+          <button *ngIf="!isLoggedIn()" routerLink="/login" mat-button color="primary">
+            Login
+          </button>
+          <button *ngIf="isLoggedIn()" (click)="logout()" mat-button color="warn">
+            Logout
+          </button>
+        </mat-menu>
+
+        <mat-button-toggle *ngIf="isLoggedIn() && !isAdmin()" mat-raised-button color="primary" routerLink="/cart">
+          <div class="icon">
+            <mat-icon [inline]="true">shopping_cart</mat-icon>
+          </div>
+
+        </mat-button-toggle>
+        <mat-button-toggle *ngIf="isLoggedIn() && isAdmin()" mat-raised-button color="primary" routerLink="/addNewProduct">Add New
+          Product</mat-button-toggle>
+        <mat-button-toggle *ngIf="isLoggedIn() && isAdmin()" mat-raised-button color="primary"
+          routerLink="/showProductDetails">Show Product Detailes</mat-button-toggle>
+        <mat-button-toggle *ngIf="isLoggedIn() && isAdmin()" mat-raised-button color="primary" routerLink="/orderInformation">Order
+          Information</mat-button-toggle>
+
+
+
+      </mat-button-toggle-group>
+
+
+
+
+
+    </div>
+
+
+
+  </mat-toolbar>
 </mat-toolbar>

@@ -1,10 +1,20 @@
+import { UserService } from './../_services/user.service';
 import { Router } from '@angular/router';
 import { ImageProcessingService } from './../image-processing.service';
-import { map } from 'rxjs';
+import { count, map } from 'rxjs';
 import { ProductService } from './../_services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
+
+
+
+declare var $: any;
+declare function countdown(): any;
+declare function getToday(): any;
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -19,11 +29,20 @@ export class HomeComponent implements OnInit {
 
   showLoadButton = false;
 
-  constructor(private productService:ProductService , private  imageProcessingService:ImageProcessingService , private router:Router){}
+  constructor(
+
+
+    private userService:UserService,private productService:ProductService , private  imageProcessingService:ImageProcessingService , private router:Router){
+
+    }
 
   ngOnInit(): void {
     this.getProductDetails();
+    countdown();
+
   }
+
+
 
   public getProductDetails(searchKey : string = ""){
     this.productService.getAllProducts(this.pageNumber ,searchKey)

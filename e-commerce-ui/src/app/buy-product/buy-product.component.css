@@ -1,0 +1,52 @@
+.form-select {
+  display: block;
+  width:40px !important;
+  padding: 0px 0px 0px 7px;
+  background-color: #F9FAFE;
+  border-radius: 10%;
+  background-position: right 0.15rem center;
+}
+
+
+.cc {
+  width: 1600px !important;
+  max-width: 1600px;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}
+
+
+.checkout-section h3{
+  font-size: 30px !important;
+  font-weight: 500;
+  font-family: 'Poppins';
+}
+
+.select-prices
+{
+  display: flex;
+  flex-direction: end;
+}
+
+.sdiv1
+{
+  flex: 2;
+  float:right;
+}
+
+.sdiv2
+{
+  flex: 1;
+  float:right;
+}
+
+.sspan{
+ float:right;
+}
+
+.lable_css label{
+  font-size: 17
+  px;
+  color: #948484;
+}

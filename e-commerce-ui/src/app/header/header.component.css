@@ -1,10 +1,215 @@
+.cc {
+  width: 1600px !important;
+  max-width: 1600px;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}
+
 .space-buttons {
   flex: 1 1 auto;
 }
 
 
-.menu-links ul
-{
+.menu-links ul {
   display: flex;
-  
+  flex: 1;
+
+}
+
+.logoh {
+  display: flex;
+  flex: 0.2;
+}
+
+.logoadd {
+  display: flex;
+  flex: 0.4;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.logoh h1 {
+  margin: 0 !important;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  color: aliceblue;
+
+}
+
+
+mat-button-toggle-group {
+  border: none !important;
+  outline: none !important;
+  border-radius: 0px ;
+}
+
+
+mat-button-toggle {
+  display: flex !important;
+  border-radius: 8%;
+  font-size: 18px;
+  height: 40px;
+  align-items: center;
+  background-color: #3F51B5;
+  border: none !important;
+  outline: none !important;
+  color: #FFFFFF;
+}
+
+
+.mat-button-toggle-checked {
+  background-color: rgba(0, 0, 0, 0.1);;
+  color: #FFFFFF !important;
+}
+
+/* div.center-text {
+  margin-left: -8px;
+  margin-top: -3px;
+} */
+
+
+
+
+
+.n-links {
+  display: flex;
+  flex: 0.2;
+
+}
+
+.searchBar {
+  display: flex;
+  background-color: #000000;
+}
+
+
+
+
+
+.search {
+  width: 10%;
+  position: relative;
+  display: flex;
+  flex: 0.8;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 0px solid white;
+  border-right: none;
+  padding: 16px;
+  height: 38px;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+  color: #000000 !important;
+
+}
+
+.searchTerm:focus {
+  color: #00B4CC;
+}
+
+.search-icon {
+  width: 30px;
+  height: 49px;
+  position: absolute;
+  color: #3F51B5;
+  font-size: 30px;
+  top: 5px;
+  right: 3px;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+
+}
+
+.s-box {
+  width: 40px;
+  height: 38px;
+  color: rgb(88, 28, 179);
+  background-color: #FFFFFF;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0 3px 3px 0;
+}
+
+
+.login-logout {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+}
+
+
+
+::ng-deep .customize {
+  background: white;
+  width: 200px;
+
+}
+
+
+.acc-div {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  background-color: #f5f5f5;
+}
+
+.acc-div h4 {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  margin-top: 13px;
+  margin-left: 5px;
+}
+
+.acc-div span {
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  color: #75a38e;
+  line-height: 0.5;
+}
+
+.acc-icon {
+  font-size: 40px;
+  width: auto;
+  height: auto;
+}
+
+
+
+
+/*
+//home */
+
+mat-grid-tile {
+  border: 2px solid lightgrey;
+  border-radius: 10px;
+}
+
+.images-container {
+  position: relative;
+  height: 300px;
+}
+
+.home-page-product-image {
+  max-width: 90%;
+  max-height: 90%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+
+.icon {
+  font-size: 26px;
 }

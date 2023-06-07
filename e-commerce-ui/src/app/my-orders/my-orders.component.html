@@ -1,3 +1,4 @@
+<div class="cc">
 
 <table mat-table [dataSource]="myOrderDetails" class="mat-elevation-z8">
   <!-- displayedColumns: string[] = ['Name', 'Address', 'Contact No', 'Amount' , 'Status']; -->
@@ -5,13 +6,18 @@
   <!-- Position Column -->
   <ng-container matColumnDef="Name">
     <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element"> {{element.orderFullName}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.orderFirstName}} </td>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="Address">
     <th mat-header-cell *matHeaderCellDef>Address</th>
     <td mat-cell *matCellDef="let element"> {{element.orderFullAddress}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="PinCode">
+    <th mat-header-cell *matHeaderCellDef>PinCode</th>
+    <td mat-cell *matCellDef="let element"> {{element.orderPostCode}} </td>
   </ng-container>
 
   <!-- Name Column -->
@@ -23,13 +29,14 @@
   <!-- Weight Column -->
   <ng-container matColumnDef="Amount">
     <th mat-header-cell *matHeaderCellDef>Amount</th>
-    <td mat-cell *matCellDef="let element"> {{element.orderAmount}} </td>
+    <td mat-cell class="unit-price" *matCellDef="let element">$&nbsp;{{element.orderAmount}}
+    </td>
   </ng-container>
 
   <!-- Symbol Column -->
   <ng-container matColumnDef="Status">
     <th mat-header-cell *matHeaderCellDef>Status</th>
-    <td mat-cell *matCellDef="let element"> {{element.orderStatus}} </td>
+    <td mat-cell class="placed" *matCellDef="let element"> {{element.orderStatus}} </td>
   </ng-container>
 
   <!-- Symbol Column -->
@@ -59,3 +66,6 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+</div>
+

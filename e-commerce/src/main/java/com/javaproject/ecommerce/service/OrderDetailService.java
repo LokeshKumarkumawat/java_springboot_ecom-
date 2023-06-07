@@ -23,8 +23,8 @@ public class OrderDetailService {
     private static final String ORDER_PLACE = "Placed";
 
 
-    private static final String KEY ="rzp_test_NRlknsw9KloKEq";
-    private static final String KEY_SECRET ="w5i2lKBZCj77UDlsQ307Jypk";
+    private static final String KEY ="rzp_test_6EZOz6rfKiINoc";
+    private static final String KEY_SECRET ="Fy9dnHEcM9DLEGFTsaxvmFrz";
     private static final String CURRENCY ="INR";
 
 
@@ -53,11 +53,18 @@ public class OrderDetailService {
 
             User user = userDao.findById(currentUser).get();
 
+
             OrderDetail orderDetail = new OrderDetail(
+                    orderInput.getFirstName(),
+                    orderInput.getLastName(),
                     orderInput.getFullName(),
-                    orderInput.getFullAddress(),
+                    orderInput.getEmailAddress(),
                     orderInput.getContactNumber(),
                     orderInput.getAlternateContactNumber(),
+                    orderInput.getFullAddress(),
+                    orderInput.getCityTown(),
+                    orderInput.getPostCode(),
+                    orderInput.getOrderMessage(),
                     ORDER_PLACE,
                     product.getProductDiscountedPrice()* o.getQuantity(),
                     product,
@@ -120,13 +127,24 @@ public class OrderDetailService {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("amount", (amount * 100));
             jsonObject.put("currency", CURRENCY);
+            System.out.println("AAAAAAAAAAAAAAAAAAAA");
 
             RazorpayClient razorpayClient = new RazorpayClient(KEY , KEY_SECRET);
+            System.out.println("HHHHHHHHHHHHHHH");
+
             Order order =  razorpayClient.orders.create(jsonObject);
+
+            System.out.println("JJJJJJJJJJJJJJJ");
+
             TransactionDetails transactionDetails = prepareTransactionDetails(order);
+            System.out.println("RRRRRRRRRRRR");
+
             return transactionDetails;
         }catch (Exception e){
+            System.out.println("EEEEEEEEEEEE");
+
             System.out.println(e.getMessage());
+            System.out.println("eeeeeeee");
         }
 
         return null;
@@ -137,8 +155,12 @@ public class OrderDetailService {
         String orderId = order.get("id");
         String currency = order.get("currency");
         Integer amount = order.get("amount");
+        System.out.println("VVVVVVVVVVVVVVV");
 
-        TransactionDetails transactionDetails = new TransactionDetails(orderId , currency , amount);
+
+        TransactionDetails transactionDetails = new TransactionDetails(orderId , currency , amount, KEY);
+        System.out.println("TTTTTTTTTTTTTT");
+
         return transactionDetails;
 
     }

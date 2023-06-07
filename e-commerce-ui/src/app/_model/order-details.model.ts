@@ -1,10 +1,16 @@
 import { OrderQuantity } from "./order-quantity.model";
 
 export interface OrderDetails{
-  fullName:string;
-  fullAddress:string;
-  contactNumber:string;
-  alternateContactNumber:string;
+  firstName:string;
+  lastName: string;
+  fullName: string;
+  fullAddress: string;
+  cityTown:string;
+  postCode: string;
+  emailAddress:string;
+  contactNumber: string;
+  alternateContactNumber: string;
+  orderMessage:string;
   orderProductQuantityList : OrderQuantity[];
 
 }

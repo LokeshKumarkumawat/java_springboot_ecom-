@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class MyOrdersComponent implements OnInit {
 
 
-  displayedColumns: string[] = ['Name', 'Address', 'Contact No', 'Amount' , 'Status'];
+  displayedColumns: string[] = ['Name', 'Address','PinCode',  'Contact No', 'Amount' , 'Status'];
 
 
   myOrderDetails : MyOrderDetails[] = [];

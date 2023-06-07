@@ -1,0 +1,142 @@
+
+/*
+
+.images-container {
+  position: absolute !important;
+  height: 300px !important;
+
+  width: 100% !important;
+
+
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+
+}
+ */
+
+
+/* .images-container{
+  position:relative !important;
+  height: 500px !important;
+  width: 100% !important;
+
+}
+
+.hero-img{
+  width: 1200px !important;
+  position:absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+  margin-right: 55px !important;
+} */
+
+
+
+/*
+.hero-img {
+  width: 100px !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+  margin-right: 55px !important;
+}
+
+
+.tp-rightarrow{
+  background-color: rgb(0, 0, 0) !important;
+  top: 100%;
+    transform: matrix(1, 0, 0, 1, -19, -13);
+    left: 100%;
+}
+
+
+.images-container img {
+  width: 100px !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+  margin-right: 55px !important;
+} */
+
+
+
+
+/*
+.fullwidthabannerwb {
+  width: 10%;
+  background-color: brown;
+  height: 300px !important;
+
+} */
+
+
+
+
+
+
+/*
+.rev_slider_wrapper {
+  width: 100% !important;
+  height:300px !important;
+  background-color: #000000 !important;
+
+}
+ */
+
+
+
+
+
+ .rev_slider_wrapper {
+  width: 100% !important;
+  height:300px !important;
+  /* background-color: #ff0000 !important; */
+}
+
+
+.fullwidthabannerwb {
+  width: 1600px !important;
+  max-width: 1600px !important;
+  height: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+}
+
+
+/*
+
+.hero-img {
+  width: 10px !important;
+  max-width: 90% !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin: auto !important;
+  margin-right: 55px !important;
+}
+
+
+.images-container  {
+  width: 100%  !important;
+  position: relative !important;
+
+} */
+
+
+

@@ -1,83 +1,295 @@
-<div class="container mt-5">
-  <div class="card">
+<!-- Checkout Section Start -->
+<section class="checkout-section">
+  <div class="cc">
+
     <div class="row">
-      <div class="col-6">
+
+      <div class="col-md-6">
+
+        <div class="lable_css woocommerce-billing-fields">
+          <h3>Billing Info</h3>
+          <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+            <div class="row">
+              <p class="col-lg-6">
+                <label>First Name</label>
+                <input [(ngModel)]="orderDetails.firstName" name="firstName" placeholder="firstName" type="text">
+              </p>
+              <p class="col-lg-6">
+                <label>Last Name</label>
+                <input [(ngModel)]="orderDetails.lastName" name="lastName" placeholder="lastName" type="text">
+              </p>
+
+              <p class="col-lg-6">
+                <label>Email</label>
+                <input [(ngModel)]="orderDetails.emailAddress" name="emailAddress" placeholder="emailAddress"
+                  type="email">
+              </p>
+
+              <p class="col-lg-6">
+                <label>Contact</label>
+                <input [(ngModel)]="orderDetails.contactNumber" name="contactNumber" placeholder="contactNumber"
+                  type="tel">
+              </p>
+
+              <p class="col-lg-6">
+                <label>Contact</label>
+                <input [(ngModel)]="orderDetails.alternateContactNumber" name="alternateContactNumber"
+                  placeholder="alternateContactNumber" type="tel">
+              </p>
+              <p class="col-lg-12">
+                <label>Address</label>
+                <input [(ngModel)]="orderDetails.fullAddress" name="fullAddress" placeholder="fullAddress" type="text">
+              </p>
 
 
-        <form #orderForm="ngForm" (ngSubmit)="createTransactionAndplaceOrder(orderForm)">
+              <p class="col-lg-6">
+                <label>City / Town</label>
+                <input [(ngModel)]="orderDetails.cityTown" name="cityTown" placeholder="cityTown" type="text">
+              </p>
 
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Full Name</mat-label>
-            <input [(ngModel)]="orderDetails.fullName" name="fullName" matInput placeholder="Full Name">
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Full address</mat-label>
-            <input [(ngModel)]="orderDetails.fullAddress" name="fullAddress" matInput
-              placeholder="Full Address">
-          </mat-form-field>
+              <p class="col-lg-6">
+                <label>Postcode / Zip</label>
+                <input [(ngModel)]="orderDetails.postCode" name="postCode" placeholder="postCode" type="text">
+              </p>
 
 
 
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Contact number</mat-label>
-            <input [(ngModel)]="orderDetails.contactNumber" name="contactNumber" matInput
-              placeholder="Contact number">
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="w-100">
-            <mat-label>Alternate contact number</mat-label>
-            <input [(ngModel)]="orderDetails.alternateContactNumber" name="alternateContactnumber" matInput
-              placeholder="Alternate contact number">
-          </mat-form-field>
-
-          <div align="right">
-            <button type="submit" mat-stroked-button color="primary" >Place Order</button>
-          </div>
-
-        </form>
+              <p class="col-lg-12">
+                <label>Order Message</label>
+                <textarea rows="1" cols="1" [(ngModel)]="orderDetails.orderMessage" name="orderMessage"
+                  placeholder="orderMessage"></textarea>
+              </p>
 
 
+            </div>
+          </form>
 
+        </div>
       </div>
-      <div class="col-6">
 
-        <table class="table">
-          <thead class="thead">
-            <tr>
-              <th>Name</th>
-              <th>Amount</th>
-              <th>Quantity</th>
-              <th>Total</th>
-            </tr>
-          </thead>
-          <tbody class="tbody">
-            <tr *ngFor="let product of productDetails">
-              <td>{{product.productName}}</td>
-              <td>{{product.productDiscountedPrice}}</td>
-              <td>
-                <select class="form-select" #quantity  [ngModel]="getQuantityForProduct(product.productId)" (change)="onQuantityChanged(quantity.value , product.productId)">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                </select>
-              </td>
+      <div class="col-md-6">
+        <div class="woocommerce-checkout-review-order" id="order_review">
+          <h3>Your Order</h3>
 
-              <td>
-                {{getCalculatedTotal(product.productId , product.productDiscountedPrice )}}
-              </td>
-            </tr>
 
-            <tr>
-              <td></td>
-              <td></td>
-              <td>Total</td>
-              <td>{{getCalculatedGrandTotal()}}</td>
-            </tr>
-          </tbody>
-        </table>
+
+
+
+
+
+
+
+
+
+
+
+
+          <table class="check-table woocommerce-checkout-review-order-table">
+            <thead>
+              <tr>
+                <th class="product-name">Products</th>
+                <th class="product-total"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr class="cart-item" *ngFor="let product of productDetails">
+                <td>{{product.productName}}</td>
+                <td>
+
+                </td>
+
+                <td class="product-total select-prices">
+                  <div class="sdiv1">
+                    <span class="sspan"> <select class="form-select" #quantity
+                        [ngModel]="getQuantityForProduct(product.productId)"
+                        (change)="onQuantityChanged(quantity.value , product.productId)">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select></span>
+                  </div>
+                  <div class="product-price clearfix sdiv2">
+                    <span class="price">
+                      <span><span
+                          class="woocommerce-Price-currencySymbol">$</span>{{getCalculatedTotal(product.productId ,
+                        product.productDiscountedPrice )}}</span>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+
+            </tbody>
+            <tfoot>
+              <tr class="cart-subtotal">
+                <th>Subtotal</th>
+                <td></td>
+                <td>
+                  <div class="product-price clearfix">
+                    <span class="price">
+                      <span><span class="woocommerce-Price-currencySymbol">$</span>{{getCalculatedGrandTotal()}}</span>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="cart-subtotal">
+                <th>Shipping</th>
+                <td></td>
+                <td>
+                  <div class="product-price clearfix">
+                    <span class="price">
+                      <span><span class="woocommerce-Price-currencySymbol">$</span>0</span>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+              <tr class="order-total">
+                <th>Total</th>
+                <td></td>
+                <td>
+                  <div class="product-price clearfix">
+                    <span class="price">
+                      <span><span class="woocommerce-Price-currencySymbol">$</span>{{getCalculatedGrandTotal()}}</span>
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <div class="woocommerce-checkout-payment" id="payment">
+            <ul class="wc_payment_methods payment_methods methods">
+              <li class="wc_payment_method payment_method_cod">
+                <input value="cod" name="payment_method" class="input-radio" id="payment_method_cod" type="radio">
+                <label for="payment_method_cod">cash on delivery (COD)</label>
+                <div class="payment_box payment_method_cod">
+                  <p>
+                    Exam id ullamcorper libero. Vestibulum impnibh. Lorem ullamcorper volutpat. Vestibulum lacinia
+                    risus.
+                    Etiam sagittis ullamcorper volutpat.
+                  </p>
+                </div>
+              </li>
+              <li class="wc_payment_method payment_method_paypal">
+                <input value="paypal" name="payment_method" class="input-radio" id="payment_method_paypal" type="radio">
+                <label for="payment_method_paypal">upi transfer <i class="twi-cc-mastercard"></i><i
+                    class="twi-cc-visa"></i></label>
+                <div class="payment_box payment_method_paypal">
+                  <p>
+                    Vestibulum impnibh. Lorem ullamcorper volutpat. Vestibulum lacinia risus. Etiam sagittis
+                    ullamcorper
+                    volutpat.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="place-order">
+            <form #orderForm="ngForm" (ngSubmit)="placeOrder(orderForm)">
+
+              <button type="submit" class="button">Place Order</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+<!-- Checkout Section End -->
+
+<!-- Footer Start -->
+<footer class="footer-01 inner-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <aside class="widget about-widget">
+          <div class="foo-logo">
+            <a href="index.html"><img src="assets/images/logo.png" alt="" /></a>
+          </div>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo
+            do consequat. Duis aute irure dolor in re
+            prehenderit in.
+          </p>
+          <div class="ab-social">
+            <a href="#"><i class="twi-facebook"></i></a>
+            <a href="#"><i class="twi-twitter"></i></a>
+            <a href="#"><i class="twi-instagram"></i></a>
+            <a href="#"><i class="twi-linkedin"></i></a>
+          </div>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-4 col-custome-1">
+        <aside class="widget">
+          <h3 class="widget-title">Useful Links</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-4 col-custome-2">
+        <aside class="widget">
+          <h3 class="widget-title">Account</h3>
+          <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Purchases</a></li>
+            <li><a href="#">Shipping Address</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-6 col-custome-3">
+        <aside class="widget contact-widget">
+          <h3 class="widget-title">Contact & Address</h3>
+          <p>
+            123 Street, Gandy Street, Syracuse
+            New York - 13221.
+          </p>
+          <p>
+            Phone: +1 315-234-3812
+            Email: info@goru.com
+          </p>
+        </aside>
+      </div>
+      <div class="col-lg-3 col-md-6 col-custome-4">
+        <aside class="widget">
+          <h3 class="widget-title">Subscribe</h3>
+          <form class="subscribe-form" action="#" method="post">
+            <input type="email" name="email" placeholder="admin@mail.com">
+            <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>
+          </form>
+        </aside>
       </div>
     </div>
   </div>
-</div>
+</footer>
+<!-- Footer Ened -->
+
+<!-- Coryight Start -->
+<section class="copyright-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-5">
+        <ul class="menu-link">
+          <li><a href="#">Privacy Policy</a></li> |
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 col-md-7">
+        <div class="copys-text"><i class="twi-copyright"></i>Copyright WpSmasher 2020 | All Rights Reserved</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Coryight End -->
+
+<!-- Back To Top -->
+<a href="#" id="backtotop"><i class="twi-angle-double-up2"></i></a>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>

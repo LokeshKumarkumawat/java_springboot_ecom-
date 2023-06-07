@@ -8,10 +8,16 @@ public class OrderDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer orderId;
+    private String orderFirstName;
+    private String orderLastName;
     private String orderFullName;
-    private String orderFullAddress;
+    private String orderEmailAddress;
     private String orderContactNumber;
     private String orderAlternateContactNumber;
+    private String orderFullAddress;
+    private String orderCityTown;
+    private String orderPostCode;
+    private String orderMessage;
     private String orderStatus;
     private Double orderAmount;
     @OneToOne
@@ -19,15 +25,70 @@ public class OrderDetail {
     @OneToOne
     private User user;
 
-    public OrderDetail(String orderFullName, String orderFullAddress, String orderContactNumber, String orderAlternateContactNumber, String orderStatus, Double orderAmount, Product product, User user) {
+
+    public OrderDetail(String orderFirstName,String orderLastName , String orderFullName, String orderEmailAddress , String orderContactNumber, String orderAlternateContactNumber,String orderFullAddress,String orderCityTown, String orderPostCode,String orderMessage, String orderStatus, Double orderAmount, Product product, User user) {
+        this.orderFirstName = orderFirstName;
+        this.orderLastName = orderLastName;
         this.orderFullName = orderFullName;
-        this.orderFullAddress = orderFullAddress;
+        this.orderEmailAddress = orderEmailAddress;
         this.orderContactNumber = orderContactNumber;
         this.orderAlternateContactNumber = orderAlternateContactNumber;
+        this.orderFullAddress = orderFullAddress;
+        this.orderCityTown = orderCityTown;
+        this.orderPostCode = orderPostCode;
+        this.orderMessage = orderMessage;
         this.orderStatus = orderStatus;
         this.orderAmount = orderAmount;
         this.product = product;
         this.user = user;
+    }
+
+    public String getOrderFirstName() {
+        return orderFirstName;
+    }
+
+    public void setOrderFirstName(String orderFirstName) {
+        this.orderFirstName = orderFirstName;
+    }
+
+    public String getOrderLastName() {
+        return orderLastName;
+    }
+
+    public void setOrderLastName(String orderLastName) {
+        this.orderLastName = orderLastName;
+    }
+
+    public String getOrderEmailAddress() {
+        return orderEmailAddress;
+    }
+
+    public void setOrderEmailAddress(String orderEmailAddress) {
+        this.orderEmailAddress = orderEmailAddress;
+    }
+
+    public String getOrderCityTown() {
+        return orderCityTown;
+    }
+
+    public void setOrderCityTown(String orderCityTown) {
+        this.orderCityTown = orderCityTown;
+    }
+
+    public String getOrderPostCode() {
+        return orderPostCode;
+    }
+
+    public void setOrderPostCode(String orderPostCode) {
+        this.orderPostCode = orderPostCode;
+    }
+
+    public String getOrderMessage() {
+        return orderMessage;
+    }
+
+    public void setOrderMessage(String orderMessage) {
+        this.orderMessage = orderMessage;
     }
 
     public OrderDetail(){}

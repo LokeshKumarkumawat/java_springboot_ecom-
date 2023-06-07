@@ -1,0 +1,16 @@
+.cc {
+  width: 1600px !important;
+  max-width: 1600px;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+  margin-top: 233px;
+  margin-bottom: 50px;
+}
+
+.cat-box{
+
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 6% !important;
+
+}

@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
 
   constructor(private productService: ProductService , private router:Router) { }
 
-  displayedColumns: string[] = ['Name', 'Description', 'Price', 'Discounted Price' , 'Actions'];
+  displayedColumns: string[] = ['PRODUCT NAME', 'TOTAL' , 'ACTION'];
 
   cartDetails:any[] = [];
 
@@ -24,11 +24,11 @@ export class CartComponent implements OnInit {
       (response: any[])=>{
         console.log(response);
         this.cartDetails = response;
-        
+
       },
       (error)=>{
         console.log(error);
-        
+
       }
     )
   }
@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
   //       console.log(resp);
   //     },(err)=>{
   //       console.log(err);
-        
+
   //     }
   //   )
   // }
@@ -51,10 +51,10 @@ export class CartComponent implements OnInit {
       (resp)=>{
         console.log(resp);
         this.getCartDetails();
-        
+
       },(err)=>{
         console.log(err);
-        
+
       }
     )
   }

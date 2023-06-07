@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<!-- <div class="container mt-5">
   <div class="row">
     <div class="col-6 ">
 
@@ -9,7 +9,8 @@
 
       <div class="mt-2">
         <mat-grid-list cols="3" gutterSize="10" rowHeight="1:1">
-          <mat-grid-tile *ngFor="let file of product.productImages; let i = index;" (click)="changeIndex(i)" style="border: 1px solid lightblue; cursor: pointer;">
+          <mat-grid-tile *ngFor="let file of product.productImages; let i = index;" (click)="changeIndex(i)"
+            style="border: 1px solid lightblue; cursor: pointer;">
             <img [src]="file.url" alt="products" height="180px" width="140px">
           </mat-grid-tile>
         </mat-grid-list>
@@ -33,11 +34,346 @@
         </div>
 
         <div class="mt-5 text-center">
-          <button mat-raised-button color="warn" style="width: 200px;" (click)="buyProduct(product.productId)">Buy Now</button>
+          <button mat-raised-button color="warn" style="width: 200px;" (click)="buyProduct(product.productId)">Buy
+            Now</button>
           &nbsp;
-           <button mat-raised-button  style="width: 200px;" (click)="addToCart(product.productId)">Add To Cart</button>
+          <button mat-raised-button style="width: 200px;" (click)="addToCart(product.productId)">Add To Cart</button>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Shop Section Start -->
+<section class="single-product-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 col-md-12">
+        <div id="product-slider" class="carousel slide product-slider" data-ride="carousel">
+          <div class="carousel-inner">
+
+            <div class="carousel-item active">
+              <div class="ps-img card images-container">
+                <img [src]="product.productImages[selectedProductIndex].url" alt="products" class="product-zoom-image">
+              </div>
+            </div>
+
+          </div>
+          <ol class="carousel-indicators clearfix">
+            <li data-slide-to="0" class="active images-container"
+              *ngFor="let file of product.productImages; let i = index;" (click)="changeIndex(i)">
+              <img class="product-zoom-imagee" [src]="file.url" alt="products" >
+            </li>
+
+          </ol>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-12">
+        <div class="sin-product-details">
+          <h3>{{product.productName}}</h3>
+          <div class="woocommerce-product-rating">
+            <div class="star-rating">
+              <i class="twi-star"></i>
+              <i class="twi-star"></i>
+              <i class="twi-star"></i>
+              <i class="twi-star"></i>
+              <span>
+                <i class="twi-star"></i>
+              </span>
+            </div>
+            <a href="#" class="woocommerce-review-link"><span class="count">03</span> customer reviews
+            </a>
+          </div>
+          <div class="product-price clearfix">
+            <span class="price">
+              <span><span class="woocommerce-Price-currencySymbol">$</span>{{product.productDiscountedPrice}}</span>
+            </span>
+          </div>
+          <div class="pro-excerp">
+            <p> {{product.productDescription}} </p>
+          </div>
+          <!-- <div class="product-color">
+            <h5>Color</h5>
+            <div class="color-1"></div>
+            <div class="color-2"></div>
+            <div class="color-3"></div>
+          </div> -->
+          <!-- <div class="product-size">
+            <h5>Size:</h5>
+            <div class="size-wrapper">
+              <div class="size-btn clearfix">
+                <input type="radio" id="x" name="size" value="x">
+                <label for="x">x</label>
+              </div>
+              <div class="size-btn clearfix">
+                <input type="radio" id="xr" name="size" value="xr">
+                <label for="xr">XR</label>
+              </div>
+              <div class="size-btn clearfix">
+                <input checked="checked" type="radio" id="xs" name="size" value="xs">
+                <label for="xs">xs</label>
+              </div>
+              <div class="size-btn clearfix">
+                <input type="radio" id="xm" name="size" value="xm">
+                <label for="xm">xm</label>
+              </div>
+            </div>
+          </div> -->
+          <div class="product-cart-qty">
+            <div class="quantityd clearfix">
+              <button class="qtyBtn btnMinus"><span>-</span></button>
+              <input name="qty" value="1" title="Qty" class="input-text qty text carqty" type="text">
+              <button class="qtyBtn btnPlus">+</button>
+            </div>
+            <button class="add-to-cart-btn" (click)="addToCart(product.productId)">Add To Cart</button>
+            <a href="#" class="Whislist"><i class="twi-heart"></i></a>
+            <a href="#" class="compare"><i class="twi-random"></i></a>
+          </div>
+          <!-- <div class="pro-socila">
+            <a href="#"><i class="twi-facebook"></i></a>
+            <a href="#"><i class="twi-twitter-square"></i></a>
+            <a href="#"><i class="twi-pinterest-square"></i></a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="divider"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-8">
+        <div class="product-tabarea">
+          <ul class="nav nav-tabs productTabs" id="productTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="descriptions-tab" data-toggle="tab" href="#descriptions" role="tab"
+                aria-controls="descriptions" aria-selected="true">Description</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                aria-selected="false">Reviews (2)</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="productTabContent">
+            <div class="tab-pane fade show active" id="descriptions" role="tabpanel" aria-labelledby="descriptions-tab">
+              <div class="descriptionContent">
+                <p>
+                  Sed id interdum urna. Nam ac elit a ante commodo tristique. condimentum vehicula a hendrerit ac nisi.
+                  hendrerit ac nisi Lorem ipsum dolor sit amet Vestibulum imperdiet nibh vel magna lacinia ultrices. Sed
+                  id interdum urna.
+                </p>
+                <p>
+                  Nullam lacinia faucibus risus, a euismod lorem tincidunt id. Donec maximus placerat tempor. Class
+                  aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse
+                  faucibus sed dolor eget posuere.Sed id interdum urna. Nam ac elit a ante commodo tristique. Duis lacus
+                  urna, condimentum a vehicula a, hendrerit ac nisi Lorem ipsum dolor sit amet.
+                </p>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="descriptions-tab">
+              <div class="comment-area">
+                <h4 class="comment-title">2 Reviews to “Gaming Controller”</h4>
+                <ol class="comment-list">
+                  <li>
+                    <div class="single-comment">
+                      <img src="assets/images/blog/c1.jpg" alt="">
+                      <h5><a href="#">Jason Statham</a><span>July 06th, 2017</span></h5>
+                      <div class="comment">
+                        <p>
+                          sapien lorem et tristique nulla lectus fauc-ibus est Pellentesque dapibus
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="single-comment">
+                      <img src="assets/images/blog/c1.jpg" alt="">
+                      <h5><a href="#">Jason Statham</a><span>July 06th, 2017</span></h5>
+                      <div class="comment">
+                        <p>
+                          Proin vitae dignissim enim, a iaculis sapien. nisi et dignissim efficitur
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+                <div class="comment-form-wrapper">
+                  <h5>Add Reivew</h5>
+                  <form action="#" method="post" class="row comment-form">
+                    <div class="col-lg-6 col-md-6">
+                      <input type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                      <input type="email" name="email" placeholder="Email">
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                      <textarea name="message" placeholder="Reviews"></textarea>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                      <input type="submit" name="submit" value="Submit Review">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="product-speciality">
+          <h5>Specifications</h5>
+          <ul>
+            <li>5.5 “ screen size</li>
+            <li>170 x 80 x15 cm</li>
+            <li>IOS 13 pre -installed</li>
+            <li>3 Cameras Installed</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="related-product-area">
+          <h3>Related Products</h3>
+          <div class="related-slider owl-carousel">
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/5.jpg" alt="" class="">
+                <div class="pro-badge">
+                  <p class="sale">Sale</p>
+                </div>
+              </div>
+              <div class="sp-details">
+                <h4>VRBOX Gaming</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                    <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/1.jpg" alt="" class="">
+                <div class="pro-badge">
+                  <p class="hot">Hot</p>
+                </div>
+              </div>
+              <div class="sp-details">
+                <h4>Gaming Mouse</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                    <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/8.jpg" alt="" class="">
+              </div>
+              <div class="sp-details">
+                <h4>Wirless Headset</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/5.jpg" alt="" class="">
+                <div class="pro-badge">
+                  <p class="sale">Sale</p>
+                </div>
+              </div>
+              <div class="sp-details">
+                <h4>VRBOX Gaming</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                    <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/1.jpg" alt="" class="">
+                <div class="pro-badge">
+                  <p class="hot">Hot</p>
+                </div>
+              </div>
+              <div class="sp-details">
+                <h4>Gaming Mouse</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <del><span><span class="woocommerce-Price-currencySymbol">$</span>42.00</span></del>
+                    <ins><span><span class="woocommerce-Price-currencySymbol">$</span>38.00</span></ins>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="single-shop-product">
+              <div class="sp-thumb">
+                <img src="assets/images/shop/8.jpg" alt="" class="">
+              </div>
+              <div class="sp-details">
+                <h4>Wirless Headset</h4>
+                <div class="product-price clearfix">
+                  <span class="price">
+                    <span><span class="woocommerce-Price-currencySymbol">$</span>122.00</span>
+                  </span>
+                </div>
+                <div class="sp-details-hover">
+                  <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+                  <a class="sp-wishlist" href="#"><i class="twi-heart2"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Shop Section End -->

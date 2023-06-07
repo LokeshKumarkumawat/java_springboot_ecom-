@@ -36,6 +36,12 @@ import { CartComponent } from './cart/cart.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatMenuModule} from '@angular/material/menu';
+import { HeroComponent } from './hero/hero.component';
+import { ProductCategoriesComponent } from './product-categories/product-categories.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 @NgModule({
   declarations: [
@@ -56,7 +62,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     RegisterComponent,
     CartComponent,
     MyOrdersComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    HeroComponent,
+    ProductCategoriesComponent,
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +83,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatMenuModule,
+    SlickCarouselModule
 
   ],
   providers: [

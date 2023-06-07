@@ -23,6 +23,7 @@ export class AddNewProductComponent implements OnInit {
     productDescription:"",
     productDiscountedPrice:0,
     productActualPrice:0,
+    productCategorie:"",
     productImages: []
   }
 
@@ -41,11 +42,16 @@ export class AddNewProductComponent implements OnInit {
 
   addProduct(productForm:NgForm){
 
+    console.log("FORM",productForm);
+
+
 
     const productFormData =  this.prepareFormData(this.product);
 
     this.productService.addProduct(productFormData).subscribe(
       (response:Product)=>{
+        console.log("RESPONCE",response);
+
         productForm.reset();
         this.product.productImages = [];
 

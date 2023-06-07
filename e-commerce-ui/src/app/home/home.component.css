@@ -20,3 +20,25 @@ mat-grid-tile
   right: 0;
   margin: auto;
 }
+
+
+
+.shop-fullwidth h5{
+  /* background-color: black; */
+  font-weight: 600;
+  font-family: sans-serif;
+}
+.shop-fullwidth h4{
+  /* background-color: black; */
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+/* // "bootstrap": "^5.2.3", */
+.cc {
+  width: 1600px !important;
+  max-width: 1600px;
+  margin-left: 0;
+  margin-right: 0;
+  margin: auto;
+}

@@ -4,7 +4,10 @@ import { OrderDetails } from './../_model/order-details.model';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from '../_model/product.model';
+// import * as Razorpay from 'razorpay';
 
+
+declare var Razorpay: any;
 @Component({
   selector: 'app-buy-product',
   templateUrl: './buy-product.component.html',
@@ -37,10 +40,16 @@ export class BuyProductComponent implements OnInit {
   }
 
   orderDetails: OrderDetails = {
+    firstName:'',
+    lastName: '',
     fullName: '',
     fullAddress: '',
+    cityTown:'',
+    postCode:'',
+    emailAddress:'',
     contactNumber: '',
     alternateContactNumber: '',
+    orderMessage:'',
     orderProductQuantityList: []
   }
 
@@ -101,15 +110,85 @@ export class BuyProductComponent implements OnInit {
   createTransactionAndplaceOrder(orderForm:NgForm){
     let amount = this.getCalculatedGrandTotal();
     this.productService.createTransaction(amount).subscribe(
-      (resp)=>{
-        console.log(resp);
-        
+      (response)=>{
+        console.log(response);
+        this.openTransactionModal(response);
+
       },(err)=>{
+        console.log("GETTING ERROR");
+
         console.log(err);
-        
+
+
       }
     )
 
+  }
+
+
+  onPaymentHandler(response) {
+    console.log("payment response", response);
+    if (response.razorpay_payment_id) {
+      // Payment successful
+    } else {
+      console.log("ERROR");
+    }
+  }
+
+
+  openTransactionModal(response:any){
+    console.log("responce Option => " , response);
+
+
+    var options= {
+
+      order_id: response.orderId,
+      key: 'rzp_test_6EZOz6rfKiINoc',
+      amount: response.amount,
+      currency: response.currency,
+      name:'Lokesh FROM NAME',
+      description: 'Payment of online shopping',
+      image:'https://cdn.pixabay.com/photo/2023/04/04/00/51/sunset-7898136_640.jpg',
+      handler:(response:any) =>{
+
+        console.log("llllllllllllllllllllkkkkkkkkkkkkk");
+
+        this.processResponse(response);
+
+        alert(response.Razorpay_payment_id);
+
+        alert(response.Razorpay_order_id);
+
+        alert(response.Razorpay_signature);
+        alert(response);
+
+      },
+      prefill : {
+        name:'LPY',
+        email:'gaurav.kumar@example.com',
+        contact:'9090909099'
+      },
+      notes:{
+        address:'Online Shopping'
+      },
+      theme:{
+        color:'#F37254'
+      }
+    };
+
+
+
+
+    var razorPayObject =  new Razorpay(options);
+
+    console.log("RRRR",razorPayObject);
+
+    razorPayObject.open();
+    console.log("RRARR",razorPayObject);
+  }
+
+  processResponse(resp:any){
+    console.log("RR=RR",resp);
   }
 
 }

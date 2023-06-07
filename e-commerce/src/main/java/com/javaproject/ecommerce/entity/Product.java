@@ -14,7 +14,7 @@ public class Product {
     private String productDescription;
     private Double productDiscountedPrice;
     private Double productActualPrice;
-
+    private String productCategorie;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "product_images",
@@ -27,6 +27,14 @@ public class Product {
 
     )
     private Set<ImageModel> productImages;
+
+    public String getProductCategorie() {
+        return productCategorie;
+    }
+
+    public void setProductCategorie(String productCategorie) {
+        this.productCategorie = productCategorie;
+    }
 
     public Set<ImageModel> getProductImages() {
         return productImages;
