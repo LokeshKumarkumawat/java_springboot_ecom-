@@ -61,10 +61,10 @@
           <div class=" images-container">
             <!-- <img src="assets/images/shop/9.jpg" alt="" class=""> -->
             <img class="home-page-product-image" [src]="p.productImages[0].url" alt="Product">
-
+<!--
             <div class="pro-badge">
               <p class="sale">Sale</p>
-            </div>
+            </div> -->
           </div>
           <div class="sp-details">
             <h4>{{p.productName}}</h4>
@@ -75,7 +75,7 @@
               </span>
             </div>
             <div class="sp-details-hover">
-              <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>Add to cart</span></a>
+              <!-- <a class="sp-cart" href="#"><i class="twi-cart-plus"></i><span>A</span></a> -->
               <button class="sp-wishlist" type="button" mat-button color="warn" (click)="showProductDetails(p.productId)">Checkout</button>
 
             </div>
@@ -90,7 +90,7 @@
     <button type="button" mat-raised-button color="primary" (click)="loadMoreProduct()">Load More</button>
   </div>
 
-  <div class="container">
+  <!-- <div class="container">
     <div class="row">
       <div class="col-lg-10 offset-lg-1 col-md-12 mt-20">
         <div class="goru-pagination text-center clearfix">
@@ -104,6 +104,91 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </section>
 <!-- Shop Section End -->
+<footer class="footer-01 inner-footer">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <aside class="widget about-widget">
+          <p>
+            Sed ut perspiciatis unde omnis iste natus er sit voluptatem accusantium dolore.ea commo
+            do consequat. Duis aute irure dolor in re
+            prehenderit in.
+          </p>
+          <div class="ab-social">
+            <a href="#"><i class="twi-facebook"></i></a>
+            <a href="#"><i class="twi-twitter"></i></a>
+            <a href="#"><i class="twi-instagram"></i></a>
+            <a href="#"><i class="twi-linkedin"></i></a>
+          </div>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-4 col-custome-1">
+        <aside class="widget">
+          <h3 class="widget-title">Useful Links</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-4 col-custome-2">
+        <aside class="widget">
+          <h3 class="widget-title">Account</h3>
+          <ul>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Log in</a></li>
+            <li><a href="#">Sign Up</a></li>
+            <li><a href="#">Purchases</a></li>
+            <li><a href="#">Shipping Address</a></li>
+          </ul>
+        </aside>
+      </div>
+      <div class="col-lg-2 col-md-6 col-custome-3">
+        <aside class="widget contact-widget">
+          <h3 class="widget-title">Contact & Address</h3>
+          <p>
+            123 Street, Gandy Street, Syracuse
+            New York - 13221.
+          </p>
+          <p>
+            Phone: +1 315-234-3812
+            Email: info@shop.com
+          </p>
+        </aside>
+      </div>
+      <div class="col-lg-3 col-md-6 col-custome-4">
+        <aside class="widget">
+          <h3 class="widget-title">Subscribe</h3>
+          <form class="subscribe-form" action="#" method="post">
+            <input type="email" name="email" placeholder="admin@mail.com">
+            <button type="submit">Subscribe<i class="twi-long-arrow-alt-right"></i></button>
+          </form>
+        </aside>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- Footer Ened -->
+
+<!-- Coryight Start -->
+<section class="copyright-section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-5">
+        <ul class="menu-link">
+          <li><a href="#">Privacy Policy</a></li> |
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-6 col-md-7">
+        <div class="copys-text"><i class="twi-copyright"></i>Copyright E-SHOPIFY 2023 | All Rights Reserved</div>
+      </div>
+    </div>
+  </div>
+</section>

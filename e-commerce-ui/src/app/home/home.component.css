@@ -21,7 +21,9 @@ mat-grid-tile
   margin: auto;
 }
 
-
+h4{
+  font-weight: bold;
+}
 
 .shop-fullwidth h5{
   /* background-color: black; */
